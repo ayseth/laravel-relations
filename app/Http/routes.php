@@ -1,5 +1,8 @@
 <?php
 
+use App\User;
+use App\Post;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -10,6 +13,21 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+/*********************************************************************
+					INSERT
+**********************************************************************/
+
+Route::get('/create', function(){
+
+$user = User::findOrFail(2);
+
+$post = new Post(['title'=>'My first post dfkgdfk', 'body'=>'I love laravel']);
+
+$user->posts()->save($post);
+
+});
+
+
 
 Route::get('/', function () {
     return view('welcome');
