@@ -21,14 +21,34 @@ Route::get('/create', function(){
 
 $user = User::findOrFail(2);
 
-$post = new Post(['title'=>'My first post dfkgdfk', 'body'=>'I love laravel']);
+$post = new Post(['title'=>'My first 2nd dfkgdfk', 'body'=>'I love laravel toooo']);
 
 $user->posts()->save($post);
 
 });
 
+/*********************************************************************
+					READ
+**********************************************************************/
+Route::get('/read', function(){
+
+$user = User::findOrFail(2);
+
+//  dd($user->posts);        //dd = die dump, shows if collecton or object  -------returns collection
+
+//  dd($user); //returns object
+
+foreach($user->posts as $post){
+	echo $post->title . "<br>";
+}
+
+});
 
 
+
+/********************************************************************
+					HOME
+**********************************************************************/
 Route::get('/', function () {
     return view('welcome');
 });
