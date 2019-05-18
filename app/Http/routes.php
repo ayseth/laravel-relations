@@ -55,6 +55,18 @@ $user = User::find(2);
 $user->posts()->where('id', 2)->update(['title'=>'I like laravel', 'body'=>'Thats  cool who knows haha']);
 
 });
+/*********************************************************************
+					DELETE
+**********************************************************************/
+Route::get('/delete', function(){
+
+$user = User::find(2);
+
+$user->posts()->whereId(1)->delete();
+});
+
+// $user->posts()->delete();  //deletes all posts
+});
 
 
 
