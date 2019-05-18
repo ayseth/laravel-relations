@@ -1,5 +1,8 @@
 <?php
 
+use App\User;
+use App\Address;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -13,4 +16,13 @@
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/insert', function(){
+	$user = User::findOrFail(1);
+
+	$address = new Address(['name'=>'333 ABC London UK']);
+
+	$user->address()->save($address);    //save will take instance, here addess is instance
+
 });
