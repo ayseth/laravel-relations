@@ -44,6 +44,18 @@ foreach($user->posts as $post){
 
 });
 
+/*********************************************************************
+					UPDATE
+**********************************************************************/
+Route::get('/update', function(){
+$user = User::find(2);
+
+// $user->posts()->whereId(1)->update(['title'=>'I might like laravel', 'body'=>'Thats maybe cool who knows']);
+
+$user->posts()->where('id', 2)->update(['title'=>'I like laravel', 'body'=>'Thats  cool who knows haha']);
+
+});
+
 
 
 /********************************************************************
