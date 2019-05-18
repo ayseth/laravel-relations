@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/************************************************************************
+							INSERT
+************************************************************************/
+
 Route::get('/insert', function(){
 	$user = User::findOrFail(1);
 
@@ -25,4 +29,18 @@ Route::get('/insert', function(){
 
 	$user->address()->save($address);    //save will take instance, here addess is instance
 
+});
+
+/************************************************************************
+							UPDATE
+************************************************************************/
+
+Route::get('/update', function(){
+
+	$address = Address::whereUserId(1)->first();
+	$address->name = "ABB Update Bangor UK";
+
+	$address->save();
+
+	//if there's more than one record this will update them all so a second constraint is needed to update the required field
 });
