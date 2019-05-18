@@ -56,3 +56,12 @@ echo $user->address->name;
 });
 
 
+/************************************************************************
+							DELETE
+************************************************************************/
+Route::get('/delete', function(){
+
+$user = User::findOrFail(1);
+$user->address()->delete(); //delete address
+return "done";
+});
