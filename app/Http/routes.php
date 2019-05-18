@@ -44,3 +44,15 @@ Route::get('/update', function(){
 
 	//if there's more than one record this will update them all so a second constraint is needed to update the required field
 });
+
+/************************************************************************
+							READ
+************************************************************************/
+
+Route::get('/read', function(){
+$user = User::findOrFail(1);
+
+echo $user->address->name;
+});
+
+
