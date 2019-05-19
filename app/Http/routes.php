@@ -70,3 +70,22 @@ Route::get('/update', function(){
 	}
 
 });
+
+/***************************************************************************************************
+								DELETE
+***************************************************************************************************/
+
+Route::get('/delete', function(){
+	$user = User::findOrFail(1);
+
+	// $user->roles()->delete();      //deletes all roles in db
+	foreach($user->roles as $role){
+
+		$role->whereId(1)->delete();			//deletes according to condition
+
+	}
+	
+
+
+});
+
