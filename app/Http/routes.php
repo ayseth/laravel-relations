@@ -47,4 +47,19 @@ foreach($staff->photos as $photo){
 
 });
 
+/********************************************************************************
+			UPDATE
+*********************************************************************************/
+
+Route::get('/update', function(){
+
+$staff = Staff::findOrFail(1);
+
+$photo = $staff->photos()->whereId(1)->first();
+
+$photo->path = "Update example glg.jpg";
+$photo->save();
+
+
+});
 
