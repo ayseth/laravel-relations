@@ -1,5 +1,7 @@
 <?php
 
+use App\User;
+use App\Role;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -13,4 +15,37 @@
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+
+/***************************************************************************************************
+											INSERT
+***************************************************************************************************/
+Route::get('/create', function(){
+$user = User::find(1);
+$role = new Role(['name'=>'Administrator']);      //role is class, where we're injecting
+
+$user->roles()->save($role);
+
+});
+
+/***************************************************************************************************
+											INSERT
+***************************************************************************************************/
+
+Route::get('/read', function(){
+	$user = User::findOrFail(1);
+
+
+//	dd($user->roles);
+
+	// foreach($user->roles as $role){
+	// 	dd($role);
+	// }
+
+	foreach($user->roles as $role){
+		echo $role->name;
+	}
+
+
 });
