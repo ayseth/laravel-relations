@@ -63,3 +63,47 @@ $photo->save();
 
 });
 
+/********************************************************************************
+			DELETE
+*********************************************************************************/
+
+Route::get('/delete', function(){
+
+$staff = Staff::findOrFail(1);
+
+// $staff->photos()->whereName('zzz.jpg')->delete();
+
+$staff->photos()->delete();
+
+
+});
+
+/********************************************************************************
+			ASSIGN
+*********************************************************************************/
+
+Route::get('/assign', function(){
+
+$staff = Staff::findOrFail(1);
+
+$photo = Photo::findOrFail(3);
+
+$staff->photos()->save($photo);
+
+});
+
+/********************************************************************************
+			UN-ASSIGN
+*********************************************************************************/
+Route::get('/unassign', function(){
+
+$staff = Staff::findOrFail(1);
+
+$photo = Photo::findOrFail(3);
+
+$staff->photos()->whereId(4)->update(['imageable_id'=>'', 'imageable_type'=>'']);
+
+});
+
+
+
