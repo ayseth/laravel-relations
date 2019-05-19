@@ -72,3 +72,16 @@ Route::get('/update', function(){
 });
 
 
+Route::get('/update2 ', function(){
+
+	
+	$post = Post::findOrFail(1);
+
+	$tag = Tag::find(2);
+	$post->tags()->save($tag);
+
+	
+
+
+});
+
