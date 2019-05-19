@@ -49,3 +49,24 @@ Route::get('/read', function(){
 
 
 });
+
+/***************************************************************************************************
+								UPDATE
+***************************************************************************************************/
+
+Route::get('/update', function(){
+
+	$user = User::findOrFail(1);
+
+	if($user->has('roles')){
+		foreach($user->roles as $role){
+			if($role->name == 'administrator'){
+				$role->name = 'subscriber';
+
+				$role->save();
+
+			}
+		}
+	}
+
+});
