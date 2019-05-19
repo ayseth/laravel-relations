@@ -102,3 +102,26 @@ Route::get('/attach ', function(){
 
 });
 
+
+/*************************************************************************************************
+						SYNC
+****************************************************************************************************/
+
+Route::get('/sync ', function(){
+
+	
+	$post = Post::findOrFail(1);
+
+	$tag = Tag::find(3);
+	$post->tags()->sync([1]);       //will assign only id 1 to post 1 and removes all other tags
+
+	
+
+
+});
+
+
+
+
+
+
