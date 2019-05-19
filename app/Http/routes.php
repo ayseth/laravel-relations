@@ -120,6 +120,19 @@ Route::get('/sync ', function(){
 
 });
 
+Route::get('/sync2 ', function(){
+
+	
+	$post = Post::findOrFail(1);
+
+	$tag = Tag::find(3);
+	$post->tags()->sync([1,2]);       //will assign only id 1 & 2, if available skip, to post 1 and removes all other tags
+
+	
+
+
+});
+
 
 
 
