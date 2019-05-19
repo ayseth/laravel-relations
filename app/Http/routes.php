@@ -100,6 +100,18 @@ Route::get('/attach', function(){
 	$user->roles()->attach(2);
 });
 
+/***************************************************************************************************
+								DETTACH ROLE TO USER
+***************************************************************************************************/
+
+Route::get('/detach', function(){
+
+	$user = User::findOrFail(1);
+
+	$user->roles()->detach(2);
+//	$user->roles()->detach(); //removes all roles from user
+});
+
 
 
 
