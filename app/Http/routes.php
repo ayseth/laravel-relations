@@ -112,6 +112,19 @@ Route::get('/detach', function(){
 //	$user->roles()->detach(); //removes all roles from user
 });
 
+/***************************************************************************************************
+								SYNC
+***************************************************************************************************/
+
+Route::get('/sync', function(){
+
+	$user = User::findOrFail(2);
+
+	$user->roles()->sync([1]);       //changes role for id number 2 to role 1
+
+	//$user->roles()->sync([1,2]);  //more than one role for user number 2
+});
+
 
 
 
